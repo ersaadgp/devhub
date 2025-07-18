@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import UserProjects from './pages/Projects'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Layout from './components/Layout'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
+  const queryClient = new QueryClient()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Layout>
+          <ToastContainer position="top-right" autoClose={3000} />
+
+          <Routes>
+            {/* Default Route */}
+            <Route path="/" element={<Home />} />
+
+            {/* Routed Page */}
+            <Route path="/projects" element={<UserProjects />} />
+
+            {/* Catch-all 404 Page */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </QueryClientProvider>
+  )
 }
 
-export default App;
+export default App
