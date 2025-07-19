@@ -30,7 +30,7 @@ DevHub is a React TypeScript application to search GitHub users and explore thei
 
 ### 1. Clone the Repo
 
-git clone https://github.com/ersaadgp/DevHub.git
+git clone https://github.com/ersaadgp/devhub.git
 cd devhub
 
 ### 2. Install Dependencies
@@ -40,14 +40,6 @@ npm install
 # or
 
 yarn
-
-### 3. Set Up Environment Variables
-
-- reate a .env file by copying the .env.example
-  cp .env.example .env
-
-- Then update your .env:
-  VITE_GITHUB_TOKEN=your_personal_access_token
 
 ---
 
@@ -63,11 +55,11 @@ yarn start
 
 ### 🧪 Running Tests (with coverage)
 
-npm test -- --coverage
+npm run test
 
 # or
 
-yarn test --coverage
+yarn test
 
 ---
 
@@ -76,16 +68,3 @@ yarn test --coverage
 start -> Start development server
 build -> Create production build
 test -> Run unit tests
-
----
-
-### 📁 Folder Structure
-
-**test**/ # Unit tests
-src/
-├── components/ # UI Components
-├── hooks/ # Custom React Hooks (e.g., useGetUsers, useGetUserRepos)
-├── pages/ # App pages (Home, UserProjects, NotFound)
-├── utils/ # Axios instance, formatters
-├── App.tsx # Main app entry
-└── main.tsx # ReactDOM renderer
